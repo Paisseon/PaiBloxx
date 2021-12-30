@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo() {
+	printf %s\\n "$*"
+}
+
+rm -f "/var/Managed Preferences/mobile/com.apple.SystemConfiguration.plist"
+rm -f "/var/mobile/Media/com.apple.SystemConfiguration.plist"
+
+echo "If there's no error above this, PaiBloxx has been successfully uninstalled"

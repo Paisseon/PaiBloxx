@@ -1,0 +1,20 @@
+#!/bin/sh
+# Used in PaiBloxx by Paisseon
+
+echo() {
+	printf %s\\n "$*"
+}
+
+if test $(/usr/bin/id -u) -ne 0; then
+	echo "Anta baka?! Didn't you read the depiction? Run me as root next time, dummy."
+fi
+
+killall -9 CFNetwork >/dev/null 2>&1
+killall -9 CFNetworkAgent >/dev/null 2>&1
+killall -9 mDNSResponder >/dev/null 2>&1
+killall -9 mDNSResponderHelper >/dev/null 2>&1
+killall -HUP apsd >/dev/null 2>&1
+killall -HUP com.apple.WebKit.Networking >/dev/null 2>&1
+killall -HUP com.apple.WebKit.WebContent >/dev/null 2>&1
+
+ldrestart >/dev/null 2>&1

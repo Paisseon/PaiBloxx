@@ -1,0 +1,35 @@
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Proxies</key>
+	<dict>
+		<key>BypassAllowed</key>
+		<integer>1</integer>
+		<key>FallBackAllowed</key>
+		<integer>0</integer>
+		<key>HTTPEnable</key>
+		<integer>1</integer>
+		<key>HTTPProxyType</key>
+		<integer>2</integer>
+		<key>HTTPSEnable</key>
+		<integer>1</integer>
+		<key>ProxyAutoConfigEnable</key>
+		<integer>1</integer>
+		<key>ProxyAutoConfigURLString</key>
+		<string>https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/proxy.pac</string>
+	</dict>
+</dict>
+</plist>' > "/var/mobile/Media/com.apple.SystemConfiguration.plist"
+
+ln -s "/var/mobile/Media/com.apple.SystemConfiguration.plist" "/var/Managed Preferences/mobile/com.apple.SystemConfiguration.plist"
+
+cat << "EOF"
+              _                          
+  _ __   __ _(_)___ ___  ___  ___  _ __  
+ | '_ \ / _` | / __/ __|/ _ \/ _ \| '_ \ 
+ | |_) | (_| | \__ \__ \  __/ (_) | | | |
+ | .__/ \__,_|_|___/___/\___|\___/|_| |_|
+ |_|                                     
+
+EOF
