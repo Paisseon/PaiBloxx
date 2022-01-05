@@ -1,8 +1,8 @@
 Package: emt.paisseon.paibloxx
 Name: PaiBloxx
-Version: 0.1b
+Version: 0.2b
 Architecture: iphoneos-arm
-Description: Systemwide adblocker for iOS. If it doesn't work, use 'sudo cfnReload' in Terminal or toggle on and off the Flight Mode.
+Description: Systemwide adblocker for iOS. If it doesn't work, use 'sudo cfnReload' in Terminal or toggle on and off Airplane Mode. To choose a PAC, use either 'sudo mbPac' for MyBloxx or 'sudo pbPac' for PaiBloxx.
 Maintainer: Paisseon
 Author: Paisseon
 Section: Tweaks
