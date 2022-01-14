@@ -1,0 +1,8 @@
+Package: emt.paisseon.paibloxxcc
+Name: PaiBloxx CC Module
+Depends: mobilesubstrate emt.paisseon.paibloxx
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Exactly what it sounds like lol
+Maintainer: Paisseon
+Author: Paisseon
