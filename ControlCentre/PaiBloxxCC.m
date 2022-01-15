@@ -24,17 +24,9 @@
 
 - (void) setSelected: (bool) arg0 {
 	if (arg0) {
-		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" error:NULL]) {
-			pid_t pid;
-			const char *args[] = {"reboot", "userspace", NULL, NULL, NULL};
-			posix_spawn(&pid, "/bin/launchctl", NULL, NULL, (char *const *)args, NULL);
-		}
+		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" error:NULL]) {}
 	} else {
-		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" error:NULL]) {
-			pid_t pid;
-			const char *args[] = {"reboot", "userspace", NULL, NULL, NULL};
-			posix_spawn(&pid, "/bin/launchctl", NULL, NULL, (char *const *)args, NULL);
-		}
+		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" error:NULL]) {}
 	}
 	[super refreshState];
 }

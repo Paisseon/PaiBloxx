@@ -1,6 +1,6 @@
 Package: emt.paisseon.paibloxx
 Name: PaiBloxx
-Version: 0.3b
+Version: 0.4b
 Architecture: iphoneos-arm
 Description: Auto-updating systemwide ad blocker for iOS
 Maintainer: Paisseon
