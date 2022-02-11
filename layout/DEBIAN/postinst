@@ -17,7 +17,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 		<key>ProxyAutoConfigEnable</key>
 		<integer>1</integer>
 		<key>ProxyAutoConfigURLString</key>
-		<string>https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/proxy.pac</string>
+		<string>https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/PACs/proxy.pac</string>
 	</dict>
 </dict>
 </plist>' > "/var/mobile/Media/com.apple.SystemConfiguration.plist"

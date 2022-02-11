@@ -24,9 +24,19 @@
 
 - (void) setSelected: (bool) arg0 {
 	if (arg0) {
-		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" error:NULL]) {}
+		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" error:NULL]) {
+			[[objc_getClass("SBAirplaneModeController") sharedInstance] setInAirplaneMode:true];
+			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				[[objc_getClass("SBAirplaneModeController") sharedInstance] setInAirplaneMode:false];
+			});
+		}
 	} else {
-		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" error:NULL]) {}
+		if ([[NSFileManager defaultManager] moveItemAtPath:@"/var/mobile/Media/com.apple.SystemConfiguration.plist" toPath:@"/var/mobile/Media/com.apple.SystemConfiguration.bak" error:NULL]) {
+			[[objc_getClass("SBAirplaneModeController") sharedInstance] setInAirplaneMode:true];
+			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				[[objc_getClass("SBAirplaneModeController") sharedInstance] setInAirplaneMode:false];
+			});
+		}
 	}
 	[super refreshState];
 }

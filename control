@@ -1,11 +1,12 @@
 Package: emt.paisseon.paibloxx
 Name: PaiBloxx
-Version: 0.4b
+Version: 0.5.1b
 Architecture: iphoneos-arm
-Description: Auto-updating systemwide ad blocker for iOS
+Description: A safe ad-blocker for iOS
 Maintainer: Paisseon
 Author: Paisseon
 Section: Tweaks
-Depends: firmware (>= 13.0), com.pheux.fixrandomresprings
+Depends: firmware (>= 13.0), plutil
 Conflicts: net.myxxdev.mybloxx12, net.myxxdev.mybloxx13, net.myxxdev.mybloxx14
-SileoDepiction: https://paisseon.github.io/info/paibloxx.json
+SileoDepiction: https://paisseon.github.io/depictions/paibloxx.json
+Depiction: https://www.reddit.com/r/jailbreak/comments/smf3xv/free_release_shutupcr4shed_silence_cr4shed_jetsam/hw0ts19/?utm_source=share&utm_medium=ios_app&utm_name=iossmf&context=3
