@@ -1,12 +1,12 @@
 Package: emt.paisseon.paibloxx
 Name: PaiBloxx
-Version: 0.5.1b
+Version: 1.0
 Architecture: iphoneos-arm
 Description: A safe ad-blocker for iOS
 Maintainer: Paisseon
 Author: Paisseon
 Section: Tweaks
-Depends: firmware (>= 13.0), plutil
+Depends: firmware (>= 12.0), com.bingner.plutil|plutil, com.opa334.ccsupport
 Conflicts: net.myxxdev.mybloxx12, net.myxxdev.mybloxx13, net.myxxdev.mybloxx14
 SileoDepiction: https://paisseon.github.io/depictions/paibloxx.json
-Depiction: https://www.reddit.com/r/jailbreak/comments/smf3xv/free_release_shutupcr4shed_silence_cr4shed_jetsam/hw0ts19/?utm_source=share&utm_medium=ios_app&utm_name=iossmf&context=3
+Depiction: https://paisseon.github.io/depictions/ButNobodyCame.html
