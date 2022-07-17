@@ -23,6 +23,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 </plist>' > "/var/mobile/Media/com.apple.SystemConfiguration.plist"
 
 ln -s "/var/mobile/Media/com.apple.SystemConfiguration.plist" "/var/Managed Preferences/mobile/com.apple.SystemConfiguration.plist"
+ln -s "/usr/local/bin/cfnReload" "/usr/local/bin/pbx"
 
 cat << "EOF"
               _                          

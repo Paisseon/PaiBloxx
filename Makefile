@@ -6,7 +6,9 @@ export FINALPACKAGE = 1
 export DEBUG = 0
 export THEOS_LEAN_AND_MEAN = 1
 
-SUBPROJECTS += ControlCentre
+INSTALL_TARGET_PROCESSES = SpringBoard
+
+SUBPROJECTS += ControlCentre Preferences
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS)/makefiles/aggregate.mk

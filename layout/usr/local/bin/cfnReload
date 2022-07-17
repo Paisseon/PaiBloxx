@@ -1,0 +1,101 @@
+#!/bin/sh
+# Used in PaiBloxx by Paisseon
+
+println() {
+	printf %s\\n "$*"
+}
+
+case "$1" in
+    "-h")
+        println "PaiBloxx CLI Arguments"
+        println "-c: Use the Custom PAC"
+        println "-d: Disable PaiBloxx"
+        println "-e: Enable PaiBloxx"
+        println "-h: Print this message"
+        println "-m: Use the MyBloxx PAC"
+        println "-p: Use the PaiBloxx Default PAC"
+        println "-s: Print the enabled status and the current PAC"
+        println "-x: Use the PaiBloxx Experimental PAC"
+        
+        exit
+        ;;
+    
+    "-e")
+	    println "Enabling ad-block..."
+	    println "plutil -Proxies -ProxyAutoConfigEnable -int 1 '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+	    
+    "-d")
+	    println "Disabling ad-block..."
+        println "plutil -Proxies -ProxyAutoConfigEnable -int 0 '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+	    
+    "-m")
+	    println "Switching PAC to MyBloxx..."
+	    println "plutil -Proxies -ProxyAutoConfigURLString -string 'https://raw.githubusercontent.com/MYXXdev/myxxdev.github.io/master/MYbloXX/MYbloXX.pac' '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+	    
+    "-p")
+	    println "Switching PAC to PaiBloxx Default..."
+	    println "plutil -Proxies -ProxyAutoConfigURLString -string 'https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/PACs/proxy.pac' '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+	    
+    "-x")
+	    println "Switching PAC to PaiBloxx Experimental..."
+	    println "plutil -Proxies -ProxyAutoConfigURLString -string 'https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/PACs/xp.pac' '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+        
+    "-c")
+        println "Switching PAC to Custom..."
+        customPac=$(println $(plutil -pacUrl /var/mobile/Library/Preferences/emt.paisseon.paibloxx.plist) | sed 's/^ *//g')
+        
+        if test $(expr length "$customPac") = 0; then
+            println "No custom PAC set! Pick one in the preferences"
+            exit
+        fi
+        
+        println "plutil -Proxies -ProxyAutoConfigURLString -string 'https://raw.githubusercontent.com/Paisseon/PaiBloxx/emt/PACs/xp.pac' '/var/mobile/Media/com.apple.SystemConfiguration.plist'" | pseudo
+        ;;
+	    
+    "-s")
+	    if test -e '/var/mobile/Media/com.apple.SystemConfiguration.plist'; then
+		    plistEnabled=$(println $(plutil -v -Proxies -ProxyAutoConfigEnable /var/mobile/Media/com.apple.SystemConfiguration.plist) | tail -c 2)
+		    plistPac=$(println $(plutil -v -Proxies -ProxyAutoConfigURLString /var/mobile/Media/com.apple.SystemConfiguration.plist) | tail -c 7)
+	    fi
+		 
+	    if test "$plistEnabled" = "0"; then
+		    println "PaiBloxx Status: $(tput setaf 1)Disabled$(tput sgr0)"
+		    exit
+	    else
+		    println "PaiBloxx Status: $(tput setaf 2)Enabled$(tput sgr0)"
+	    fi
+            
+        case "$plistPac" in
+            "XX.pac")
+                println "Current PAC: MyBloxx"
+                ;;
+            "xy.pac")
+                println "Current PAC: PaiBloxx Default"
+                ;;
+            "xp.pac")
+                println "Current PAC: PaiBloxx Experimental"
+                ;;
+            *)
+                println "Current PAC: Custom"
+                ;;
+        esac
+        
+        exit
+        ;;
+    *)
+        println "`pbx -h`"
+        exit
+        ;;
+esac
+
+println "Reloading network processes..."
+
+killall -HUP mDNSResponderHelper > /dev/null 2>&1
+killall -HUP CFNetworkAgent > /dev/null 2>&1
+
+println "Done!"
