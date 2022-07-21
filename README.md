@@ -3,4 +3,4 @@ I love the idea of MyBloxx, but it had way too many problems. Multiple users rep
 
 You can think of PaiBloxx as "MyBloxx but safer." It changes only what is needed to achieve the intended purpose-- blocking ads. Additionally, PaiBloxx uses a symlink to /var/mobile/Media so you can even disable it in a non-jailbroken state if needed.
 
-Should you encounter any problems with PaiBloxx, use 'sudo cfnReload' in NewTerm 2 to fix them.
+You can configure PaiBloxx using pbx in NewTerm or the preferences-- there is also a CC module to enable/disable with one tap.
